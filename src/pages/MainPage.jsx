@@ -31,7 +31,7 @@ const MainPage = () => {
   } 
     )
     console.log(arrId)
-    axios.delete('http://localhost:5000/deleteUser',{data:{usersIds:arrId},headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+    axios.delete('https://task4server.herokuapp.com/deleteUser',{data:{usersIds:arrId},headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
     .then(res=>{
       console.log(arrId.includes(localStorage.getItem('userId')))
       if(arrId.includes(localStorage.getItem('userId'))){
@@ -41,7 +41,7 @@ const MainPage = () => {
         return res
       }
       if(res.status === 200){
-        axios.get('http://localhost:5000/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+        axios.get('https://task4server.herokuapp.com/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
       .then(res=>{
          if(res.status === 200){
           setData(res.data);
@@ -65,10 +65,10 @@ const MainPage = () => {
   } 
     )
     console.log(arrId)
-    axios.put('http://localhost:5000/block',{usersIds:arrId,status:"banned"},{headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+    axios.put('https://task4server.herokuapp.com/block',{usersIds:arrId,status:"banned"},{headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
     .then(res=>{
       if(res.status === 200){
-        axios.get('http://localhost:5000/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+        axios.get('https://task4server.herokuapp.com/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
       .then(res=>{
          if(res.status === 200){
           setData(res.data);
@@ -95,10 +95,10 @@ const MainPage = () => {
   } 
     )
     console.log(arrId)
-    axios.put('http://localhost:5000/block',{usersIds:arrId,status:"active"},{headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+    axios.put('https://task4server.herokuapp.com/block',{usersIds:arrId,status:"active"},{headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
     .then(res=>{
       if(res.status === 200){
-        axios.get('http://localhost:5000/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+        axios.get('https://task4server.herokuapp.com/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
       .then(res=>{
          if(res.status === 200){
           setData(res.data);
@@ -116,7 +116,7 @@ const MainPage = () => {
     if(!localStorage.getItem('token')){
         navigate('/login')
     }else{
-      axios.get('http://localhost:5000/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+      axios.get('https://task4server.herokuapp.com/',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
       .then(res=>{
          if(res.status === 200){
           setData(res.data);

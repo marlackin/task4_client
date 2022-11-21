@@ -13,7 +13,7 @@ function App() {
   const navigate = useNavigate()
     useEffect(() => {
         if(localStorage.getItem("token") !== null)
-        axios.get('http://localhost:5000/accessResource',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}}).then(res => {
+        axios.get('https://task4server.herokuapp.com/accessResource',{headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}}).then(res => {
             if(res.data.success){
                 localStorage.setItem('userId', res.data.data.id);
                 setIsAuth(true)

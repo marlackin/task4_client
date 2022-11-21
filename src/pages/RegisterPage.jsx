@@ -17,7 +17,7 @@ const RegisterPage = () => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    axios.post('http://localhost:5000/register',form)
+    axios.post('https://task4server.herokuapp.com/register',form)
     .then(res=>{
        if(res.status === 200){
         setVisibleModel({view:true,text:'вы успешно зарегались'})
